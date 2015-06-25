@@ -1,4 +1,5 @@
 node_modules
 dist
-bower_components
+bower_components/*
+!/bower_components/cast-button-polymer
 .tmp
