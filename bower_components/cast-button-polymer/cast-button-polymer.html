@@ -15,8 +15,8 @@ limitations under the License.
 -->
 
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../core-signals/core-signals.html">
-<link rel="import" href="../core-tooltip/core-tooltip.html">
+<link rel="import" href="../iron-signals/iron-signals.html">
+<!-- <link rel="import" href="../core-tooltip/core-tooltip.html"> -->
 
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
 
@@ -39,11 +39,12 @@ When defining the element, appId and castManager are required.  The background c
 
 This element will also sync local state with the chromecast state via castManager method calls.
 -->
-<polymer-element name="cast-button">
-  <template>
-    <style>
+<dom-module id="cast-button">
+ 
+     <style>
       :host {
         margin-top: 5px;
+        margin-left: 34px;
         display: block;
         overflow: visible;
       }
@@ -108,8 +109,10 @@ This element will also sync local state with the chromecast state via castManage
         transform: translate3d(0, 0, 0);
       }
     </style>
-    <core-tooltip id="tooltip" class="fancy" label="Click to cast videos to your TV" large
-                  position="top" noarrow>
+ 
+  <template>
+
+
       <svg version="1.1" id="button_cast" xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          class="{{color == 'white' ? 'button-white' : 'button-black'}}
@@ -130,9 +133,13 @@ This element will also sync local state with the chromecast state via castManage
       d="M0,19.1v4C8.3,24,15,30.7,15.9,39h4C19,28.4,10.6,20,0,19.1z"/>
     </g>
     </svg>
-    </core-tooltip>
-    <core-signals on-core-signal-media-action="{{ mediaActionHandler }}"></core-signals>
+    
+    
+    <iron-signals on-iron-signal-media-action="mediaActionHandler"></iron-signals>
+    
   </template>
+  </dom-module>
+  
   <script>
     var cast = window.cast || {};
 
@@ -149,7 +156,8 @@ This element will also sync local state with the chromecast state via castManage
       var loadCoreSignal = function() {
         var coreSignalImport = document.createElement('link');
         coreSignalImport.setAttribute('rel', 'import');
-        coreSignalImport.setAttribute('href', 'bower_components/core-signals/core-signals.html');
+        coreSignalImport.setAttribute('href', 'bower_components/iron-signals/iron-signals.html');
+//        coreSignalImport.setAttribute('href', 'bower_components/core-signals/core-signals.html');
         document.body.appendChild(coreSignalImport);
       };
 
@@ -217,7 +225,7 @@ This element will also sync local state with the chromecast state via castManage
          * @param sender {CastManager.SENDER}
          */
         play: function(sender) {
-          var playEvent = new CustomEvent('core-signal',
+          var playEvent = new CustomEvent('iron-signal',
               {
                 'detail': {
                   'name': 'media-action',
@@ -235,7 +243,7 @@ This element will also sync local state with the chromecast state via castManage
          * @param sender {CastManager.SENDER}
          */
         pause: function(sender) {
-          var pauseEvent = new CustomEvent('core-signal',
+          var pauseEvent = new CustomEvent('iron-signal',
               {
                 'detail': {
                   'name': 'media-action',
@@ -255,7 +263,7 @@ This element will also sync local state with the chromecast state via castManage
          */
         seek: function(time, sender) {
           //Fire a core-signal event
-          var seekEvent = new CustomEvent('core-signal',
+          var seekEvent = new CustomEvent('iron-signal',
               {
                 'detail': {
                   'name': 'media-action',
@@ -269,7 +277,7 @@ This element will also sync local state with the chromecast state via castManage
           document.dispatchEvent(seekEvent);
         },
         volume: function(sender, volume) {
-          var volumeEvent = new CustomEvent('core-signal',
+          var volumeEvent = new CustomEvent('iron-signal',
               {
                 'detail': {
                   'name': 'media-action',
@@ -283,7 +291,7 @@ This element will also sync local state with the chromecast state via castManage
           document.dispatchEvent(volumeEvent);
         },
         fullScreen: function() {
-          var fullscreenEvent = new CustomEvent('core-signal',
+          var fullscreenEvent = new CustomEvent('iron-signal',
               {
                 'detail': {
                   'name': 'media-action',
@@ -295,7 +303,7 @@ This element will also sync local state with the chromecast state via castManage
           document.dispatchEvent(fullscreenEvent);
         },
         exitFullScreen: function() {
-          var fullscreenEvent = new CustomEvent('core-signal',
+          var fullscreenEvent = new CustomEvent('iron-signal',
               {
                 'detail': {
                   'name': 'media-action',
@@ -343,6 +351,7 @@ This element will also sync local state with the chromecast state via castManage
           || this.localMedia.url === this.castMedia.media.contentId);
         },
         hasCastSession: function() {
+			console.log("hasCastSession");
           return (Object.keys(this.session).length > 0
           && this.session.status === chrome.cast.SessionStatus.CONNECTED);
         }
@@ -463,7 +472,9 @@ This element will also sync local state with the chromecast state via castManage
       cast.Media = Media;
     })();
 
-    Polymer("cast-button", {
+
+    Polymer({
+		is: "cast-button",
       display: false,
       // Autoplay at all times ie. when local video is paused then casted
       autoplay: false,
@@ -477,19 +488,32 @@ This element will also sync local state with the chromecast state via castManage
       prevTime: null,
       // Time to display the click here to connect message
       tooltipDisplayTime: 2000,
-      publish: {
-        // AppId of Chromecast receiver
-        appId: null,
-        // CastManager
-        castManager: null,
-        // Background color
-        color: 'black',
-        // Interval for connection animation
-        animationInterval: 400
-      },
-      observe: {
-        "castManager.castMedia.playerState": 'castPlayerStateObserver'
-      },
+      
+ //     castManager.castMedia.playerState :{
+//		  type: String,
+//		  value: '',
+//		  observer: 'castPlayerStateObserver'
+		
+//		},
+
+hostAttributes: {
+  appid: 0,
+  id:"cast_button",
+  color:"black",
+  animationinterval: 0,
+  mediaList: "l",
+},
+
+  properties: {
+    appid: String,
+    id: String,  
+    color: String,
+    castManager: {type: Object, observer: 'castPlayerStateObserver'},
+    media: Object,
+    animationinterval: Number,
+    mediaList: Array, 
+  },
+      
       ready: function() {
         if (this.appId !== null
             && window.chrome !== null
@@ -504,21 +528,26 @@ This element will also sync local state with the chromecast state via castManage
             if (!chrome.cast || !chrome.cast.isAvailable) {
               setTimeout(initializeCastApi.bind(this), 1000);
             } else {
-              var sessionRequest = new chrome.cast.SessionRequest(this.appId);
+              var sessionRequest = new chrome.cast.SessionRequest(this.appid);
               var apiConfig = new chrome.cast.ApiConfig(sessionRequest,
                   this.sessionListener.bind(this),
                   this.receiverListener.bind(this));
-              chrome.cast.initialize(apiConfig, this.initSuccess.bind(this), this.errorHandler);
-
+              chrome.cast.initialize(apiConfig, 
+				this.initSuccess.bind(this), 
+//				this.errorHandler);
+				this.initFail.bind(this));
+				  
+				//TODO is this legal in 1.0
               // Add an event listener to try and connect when clicked
               this.$.button_cast.addEventListener('click', function() {
+				  //TODO new media from list, new CMgr(media) : castManager =  new cast.CastManager(media);	
                 if (this.castManager.session === chrome.cast.SessionStatus.CONNECTED) {
                   this.stopCasting();
                 } else {
                   if (this.intervalId === null) {
                     this.intervalId = window.setInterval(function() {
                       this.connectingCounter = (this.connectingCounter + 1) % 3;
-                    }.bind(this), this.animationInterval);
+                    }.bind(this), this.animationinterval);
                   }
                   this.castManager.exitFullScreen();
                   this.startCasting();
@@ -527,6 +556,13 @@ This element will also sync local state with the chromecast state via castManage
             }
           };
           initializeCastApi.call(this);
+          if(typeof this.mediaList !== "undefined") {
+			  
+			  console.log("init medialst sz " );
+		  }else{
+			  console.log("init inner ELE NO LIST");
+			  }
+          //cast.Media(mediaList[Object.keys(mediaList)[0]]);
         } else {
           console.log('No receiver app id defined');
         }
@@ -552,9 +588,9 @@ This element will also sync local state with the chromecast state via castManage
         if (e === chrome.cast.ReceiverAvailability.AVAILABLE) {
           // If a receiver is available display the button
           this.display = true;
-          this.$.tooltip.show = true;
+ //         this.$.tooltip.show = true;
           window.setTimeout(function() {
-            this.$.tooltip.show = false;
+//            this.$.tooltip.show = false;
           }.bind(this), this.tooltipDisplayTime);
         } else {
           // If no receiver is available, hide the button
@@ -564,10 +600,15 @@ This element will also sync local state with the chromecast state via castManage
       initSuccess: function(e) {
         console.log('Chromecast init success');
       },
+      initFail: function(e) {
+        console.log('Chromecast init fail ' +e.code);
+      },      
+      
       /**
        * Start a casting session
        */
       startCasting: function() {
+		  console.log("startCasting IN");
         chrome.cast.requestSession(this.onRequestSessionSuccess.bind(this),
             this.onLaunchError.bind(this));
       },
@@ -581,6 +622,8 @@ This element will also sync local state with the chromecast state via castManage
       /**
        * Loads media onto the Chromecast
        *
+       * TODO : queueLoad (queueLoadRequest, successCallback, errorCallback)
+       *  TODO : new QueueLoadRequest (items) :: arrayOf [] new QueueItem (mediaInfo)
        * @param media {cast.Media} media content to load
        */
       loadMedia: function(media, autoplay) {
@@ -608,8 +651,9 @@ This element will also sync local state with the chromecast state via castManage
        */
       onRequestSessionSuccess: function(session) {
         console.log('Launch success');
-        this.setMediaSession(session);
-        this.loadMedia(this.castManager.localMedia, this.autoplay);
+        this.setMediaSession(session);  
+        //session.queueLoad (queueLoadRequest, successCallback, errorCallback)        
+        //this.loadMedia(this.castManager.localMedia, this.autoplay);
       },
       onLaunchError: function(e) {
         console.log('Launch error: ' + JSON.stringify(e));
@@ -621,7 +665,7 @@ This element will also sync local state with the chromecast state via castManage
        * @param media {chrome.cast.media.Media} media loaded on Chromecast
        */
       onMediaDiscovered: function(media) {
-        console.log('Media loaded');
+        console.log('Media loaded ' +JSON.stringify(media));
         this.castManager.showSpinner = false;
 
         // Adds a listener for any changes to media
@@ -687,18 +731,20 @@ This element will also sync local state with the chromecast state via castManage
        * Observes session status and updates the button UI to reflect current session status
        */
       castManagerSessionObserver: function() {
-        console.log('Chromecast session content changed');
+        
         // If a session status exists and if session is connected
         if (this.castManager.session.status
             && this.castManager.session.status === chrome.cast.SessionStatus.CONNECTED) {
           // If it is set casting to true and stop the connecting animation
           this.castManager.isCasting = true;
-          this.$.tooltip.label = 'Click to disconnect';
+ //         this.$.tooltip.label = 'Click to disconnect';
           this.stopAnimation();
+          console.log('Chromecast session content changed ONE');
         } else {
           // Otherwise casting remains false;
           this.castManager.isCasting = false;
-          this.$.tooltip.label = 'Click to cast videos to your TV';
+          console.log('Chromecast session content changed END');
+ //         this.$.tooltip.label = 'Click to cast videos to your TV';
         }
       },
       /**
@@ -740,7 +786,7 @@ This element will also sync local state with the chromecast state via castManage
        * Helper function that returns true if the request is actionable by cast.
        */
       isCastActionable: function(data) {
-        return !!((!this.castManager.hasCastSession()
+        return !!((this.castManager.hasCastSession()
         && this.castManager.hasCastMedia()
         && (this.castManager.isMediaMatch()
         && data.sender !== cast.CastManager.SENDER.CHROMECAST))
@@ -805,7 +851,9 @@ This element will also sync local state with the chromecast state via castManage
        * @param oldVal {chrome.cast.media.PlayerState} previous player state
        * @param newVal {chrome.cast.media.PlayerState} current player state
        */
-      castPlayerStateObserver: function(oldVal, newVal) {
+//      castPlayerStateObserver: function(oldVal, newVal) {
+castPlayerStateObserver: function(newVal, oldVal ) {
+	console.log('castPlayerState changed ');
         if (this.castManager.isCasting) {
           if (newVal === chrome.cast.media.PlayerState.PLAYING) {
             this.castManager.showSpinner = false;
@@ -831,4 +879,5 @@ This element will also sync local state with the chromecast state via castManage
       }
     });
   </script>
-</polymer-element>
+
+

@@ -28,6 +28,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {
     // imports are loaded and elements have been registered
+    document.querySelector('body').removeAttribute('unresolved');
+
+    // Ensure the drawer is hidden on desktop/tablet
+    var drawerPanel = document.querySelector('#paperDrawerPanel');
+    drawerPanel.forceNarrow = true;
+  });
+  
+  
+  window.addEventListener('login', function() {
+		app.route = 'contact';
+		page('/#!/contact');
   });
 
   // Close drawer after menu item is selected if drawerPanel is narrow
@@ -37,5 +48,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       drawerPanel.closeDrawer();
     }
   };
+/*jshint -W117 */
+   // Initialize Parse 
+  Parse.initialize('dDgpCbCGWqIojuPcym19Ov6vEkmBH8Nk90P3qovv',
+                   'fZM8Qu34SBChH1wnr0hkkp6MkyRAxlhPaOBWltSb');   
+
+  if(Parse.User.current()) {
+//	  todoModel.myusername = Parse.User.current().getUsername();
+	  page('/#!/contact');
+  } else {
+	  page('/#!/logon');
+	  } 
 
 })(document);
