@@ -6,7 +6,12 @@
     "paper-elements": "PolymerElements/paper-elements#1.0.1",
     "platinum-elements": "PolymerElements/platinum-elements#1.0.1",
     "neon-elements": "PolymerElements/neon-elements#1.0.0",
-    "page": "visionmedia/page.js#~1.6.3"
+    "page": "visionmedia/page.js#~1.6.3",
+    "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.0",
+    "iron-signals": "PolymerElements/iron-signals#^1.0.0",
+    "paper-toast": "PolymerElements/paper-toast#^1.0.0",
+    "cast-button-polymer": "googlecast/cast-button-polymer#~1.0.0",
+    "login-form": "*"
   },
   "devDependencies": {
     "web-component-tester": "*",
