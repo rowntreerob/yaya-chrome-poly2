@@ -181,7 +181,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 // will heroku serve this from gulp
 gulp.task('serveprod', function() {
   connect.server({
-    root: [your_project_path],
+    root: 'dist',
     port: process.env.PORT || 5000, // localhost:5000
     livereload: false
   });
