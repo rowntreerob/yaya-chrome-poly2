@@ -178,6 +178,15 @@ gulp.task('precache', function (callback) {
 // Clean Output Directory
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
+// will heroku serve this from gulp
+gulp.task('serveprod', function() {
+  connect.server({
+    root: [your_project_path],
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
+
 // Watch Files For Changes & Reload
 gulp.task('serve', ['styles', 'elements', 'images'], function () {
   browserSync({
@@ -244,11 +253,7 @@ gulp.task('default', ['clean'], function (cb) {
     // Note: add , 'precache' , after 'vulcanize', if your are going to use Service Worker
 });
 
-gulp.task('heroku:production',   function(){
-  $.connect.server({
-    root: 'dist',
-    port: process.env.PORT || 5000, // localhost:5000
-    livereload: false
+gulp.task('heroku:production', ['default'],  function(){
 
   }); 
 });
