@@ -246,7 +246,7 @@ gulp.task('default', ['clean'], function (cb) {
 
 gulp.task('heroku:production',   function(){
   $.connect.server({
-    root: dist,
+    root: 'dist',
     port: process.env.PORT || 5000, // localhost:5000
     livereload: false,
     middleware: function(connect) {
