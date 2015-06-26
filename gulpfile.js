@@ -244,7 +244,7 @@ gulp.task('default', ['clean'], function (cb) {
     // Note: add , 'precache' , after 'vulcanize', if your are going to use Service Worker
 });
 
-gulp.task('heroku',  ['default'], function(){
+gulp.task('heroku:production',  ['default'], function(){
   browserSync({
     notify: false,
     logPrefix: 'PSK',
