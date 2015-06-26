@@ -245,10 +245,16 @@ gulp.task('default', ['clean'], function (cb) {
 });
 
 gulp.task('heroku:production',   function(){
-  connect.server({
+  $.connect.server({
     root: dist,
     port: process.env.PORT || 5000, // localhost:5000
-    livereload: false
+    livereload: false,
+    middleware: function(connect) {
+      return [
+        connect().use(connect.query()),
+        connect().use(builder.middleware())
+      ];
+    }
   }); 
 });
 
