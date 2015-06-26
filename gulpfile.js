@@ -245,23 +245,10 @@ gulp.task('default', ['clean'], function (cb) {
 });
 
 gulp.task('heroku:production',   function(){
-  browserSync({
-    notify: false,
-    logPrefix: 'PSK',
-    snippetOptions: {
-      rule: {
-        match: '<span id="browser-sync-binding"></span>',
-        fn: function (snippet) {
-          return snippet;
-        }
-      }
-    },
-    // Run as an https by uncommenting 'https: true'
-    // Note: this uses an unsigned certificate which on first access
-    //       will present a certificate warning in the browser.
-    // https: true,
-    server: 'dist',
-    middleware: [ historyApiFallback() ]
+  connect.server({
+    root: dist,
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
   }); 
 });
 
