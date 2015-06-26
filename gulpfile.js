@@ -256,7 +256,7 @@ gulp.task('default', ['clean'], function (cb) {
 gulp.task('heroku:production', ['default'],  function(){
 
   }); 
-});
+
 
 // Load tasks for web-component-tester
 // Adds tasks for `gulp test:local` and `gulp test:remote`
