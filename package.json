@@ -65,7 +65,7 @@
   "scripts": {
     "test": "gulp test:local",
     "start": "node app",
-  "postinstall": "gulp default "
+  
   },
   "engines": {
     "node": ">=0.10.0",
