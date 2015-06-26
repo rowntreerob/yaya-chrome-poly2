@@ -66,7 +66,7 @@
   },
   "scripts": {
     "test": "gulp test:local",
-    "start": "node node_modules/gulp/bin/gulp serveprod"
+    "start": "gulp serveprod"
   },
   "engines": {
     "node": ">=0.10.0",
