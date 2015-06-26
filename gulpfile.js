@@ -244,8 +244,25 @@ gulp.task('default', ['clean'], function (cb) {
     // Note: add , 'precache' , after 'vulcanize', if your are going to use Service Worker
 });
 
-gulp.task('heroku:production',  ['default'], function(){
-  
+gulp.task('heroku:production',   function(){
+  browserSync({
+    notify: false,
+    logPrefix: 'PSK',
+    snippetOptions: {
+      rule: {
+        match: '<span id="browser-sync-binding"></span>',
+        fn: function (snippet) {
+          return snippet;
+        }
+      }
+    },
+    // Run as an https by uncommenting 'https: true'
+    // Note: this uses an unsigned certificate which on first access
+    //       will present a certificate warning in the browser.
+    // https: true,
+    server: 'dist',
+    middleware: [ historyApiFallback() ]
+  }); 
 });
 
 // Load tasks for web-component-tester
