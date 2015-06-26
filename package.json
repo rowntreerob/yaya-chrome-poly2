@@ -64,8 +64,7 @@
   },
   "scripts": {
     "test": "gulp test:local",
-    "start": "node app",
-  
+    "start": "node app"  
   },
   "engines": {
     "node": ">=0.10.0",
