@@ -12,7 +12,8 @@
     "paper-toast": "PolymerElements/paper-toast#^1.0.0",
     "cast-button-polymer": "googlecast/cast-button-polymer#~1.0.0",
     "login-form": "*",
-    "paper-styles": "PolymerElements/paper-styles#^1.0.0"
+    "paper-styles": "PolymerElements/paper-styles#^1.0.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0"
   },
   "devDependencies": {
     "web-component-tester": "*",

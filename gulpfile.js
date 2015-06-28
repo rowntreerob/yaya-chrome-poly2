@@ -94,7 +94,7 @@ gulp.task('copy', function () {
     'bower_components/**/*'
   ]).pipe(gulp.dest('dist/bower_components'));
 
-  var elements = gulp.src(['app/elements/**/*.html'])
+  var elements = gulp.src(['app/elements/**/*.html', 'app/elements/**/*.js'])
     .pipe(gulp.dest('dist/elements'));
 
   var swBootstrap = gulp.src(['bower_components/platinum-sw/bootstrap/*.js'])
@@ -156,7 +156,10 @@ gulp.task('vulcanize', function () {
       inlineScripts: true
     }))
     .pipe(gulp.dest(DEST_DIR))
-    .pipe($.size({title: 'vulcanize'}));
+    .pipe($.size({title: 'vulcanize'}))
+    .on( "error", function( err ) {
+    console.log( err );
+    });
 });
 
 // Generate a list of files that should be precached when serving from 'dist'.
@@ -240,7 +243,7 @@ gulp.task('serve:dist', ['default'], function () {
     server: 'dist',
     middleware: [ historyApiFallback() ]
   });
-}); dist: 'dist',
+});
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
