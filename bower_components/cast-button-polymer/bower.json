@@ -1,0 +1,21 @@
+{
+  "name": "cast-button-polymer",
+  "description": "cast button built on polymer to simplify Chromecast integration",
+  "keywords": [
+    "cast",
+    "polymer"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.5",
+    "core-signals": "Polymer/core-signals#~0.5.5",
+    "core-tooltip": "Polymer/core-tooltip#~0.5.5"
+  }
+}
