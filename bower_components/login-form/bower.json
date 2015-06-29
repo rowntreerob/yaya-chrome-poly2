@@ -9,7 +9,6 @@
     "polymer": "Polymer/polymer#master"
   },
   "license": "MIT",
-  "main": "login-form/login-form.html",
   "keywords": [
     "Polymer",
     "web-components"
