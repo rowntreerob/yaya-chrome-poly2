@@ -21,6 +21,7 @@ var path = require('path');
 var fs = require('fs');
 var glob = require('glob');
 var historyApiFallback = require('connect-history-api-fallback');
+var ghpages = require('gh-pages');
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
@@ -181,15 +182,6 @@ gulp.task('precache', function (callback) {
 // Clean Output Directory
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-// will heroku serve this from gulp
-gulp.task('serveprod', function() {
-  $.connect.server({
-    root: 'dist',
-    port: process.env.PORT || 5000, // localhost:5000
-    livereload: false
-  });
-});
-
 // Watch Files For Changes & Reload
 gulp.task('serve', ['styles', 'elements', 'images'], function () {
   browserSync({
@@ -256,10 +248,9 @@ gulp.task('default', ['clean'], function (cb) {
     // Note: add , 'precache' , after 'vulcanize', if your are going to use Service Worker
 });
 
-gulp.task('heroku:production', ['default'],  function(){
-
-  }); 
-
+gulp.task('deploy', ['default'], function(cb) {
+    ghpages.publish(path.join(process.cwd(), 'dist'), cb);
+});
 
 // Load tasks for web-component-tester
 // Adds tasks for `gulp test:local` and `gulp test:remote`
