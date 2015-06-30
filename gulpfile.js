@@ -84,16 +84,24 @@ gulp.task('images', function () {
 // Copy All Files At The Root Level (app)
 gulp.task('copy', function () {
   var app = gulp.src([
-    'app/*',
+    'app/*',       
     '!app/test',
     '!app/precache.json'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
-
+  
   var bower = gulp.src([
     'bower_components/**/*'
-  ]).pipe(gulp.dest('dist/bower_components'));
+  ]).pipe(gulp.dest('dist/bower_components'));  
+
+  var appjs = gulp.src([
+    'app/scripts/*.js'
+  ]).pipe(gulp.dest('dist/scripts')); 
+  
+  var styleHtml = gulp.src([
+    'app/styles/*.html'
+  ]).pipe(gulp.dest('dist/styles'));  
 
   var elements = gulp.src(['app/elements/**/*.html', 'app/elements/**/*.js'])
     .pipe(gulp.dest('dist/elements'));
@@ -108,7 +116,7 @@ gulp.task('copy', function () {
     .pipe($.rename('elements.vulcanized.html'))
     .pipe(gulp.dest('dist/elements'));
 
-  return merge(app, bower, elements, vulcanized, swBootstrap, swToolbox)
+  return merge(app, appjs, styleHtml, bower, elements, vulcanized, swBootstrap, swToolbox)
     .pipe($.size({title: 'copy'}));
 });
 

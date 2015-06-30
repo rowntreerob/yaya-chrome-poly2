@@ -14,8 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.5.5",
-    "core-signals": "Polymer/core-signals#~0.5.5",
-    "core-tooltip": "Polymer/core-tooltip#~0.5.5"
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-signals": "PolymerElements/iron-signals#^1.0.0"
   }
 }
