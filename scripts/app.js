@@ -56,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 //	  todoModel.myusername = Parse.User.current().getUsername();
 	  page('/#!/contact');
   } else {
-	  page('/#!/logon');
+	  page('/#!/yaya-chrome-poly2/logon');
 	  } 
 
 })(document);
