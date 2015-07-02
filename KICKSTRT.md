@@ -49,7 +49,8 @@ Note about Channels, Users and permissions.  User **investor-portal** has been g
 
 FAQ on sharing a video from the [Yaya creator app](https://www.youtube.com/watch?v=goTA4lu7MMA&t=2m56s)
 
+a href="creating yaya messages"><img src="http://giphy.com/embed/xTiTnqzcoyoQPMqiAM"></a> 
 
-<iframe src="//giphy.com/embed/xTiTnqzcoyoQPMqiAM" width="272" height="496" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
 
 
