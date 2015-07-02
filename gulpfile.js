@@ -153,6 +153,14 @@ gulp.task('html', function () {
     .pipe($.size({title: 'html'}));
 });
 
+gulp.task('uglifyone', function () {
+  return gulp.src(['bower_components/cast-button-polymer/*.js'])
+    .pipe($.uglify({preserveComments: 'some', mangle: true}))
+    // Output Files
+    .pipe(gulp.dest('dist'))
+    .pipe($.size({title: 'ugly'}));
+});
+
 // Vulcanize imports
 gulp.task('vulcanize', function () {
   var DEST_DIR = 'dist/elements';
@@ -256,7 +264,7 @@ gulp.task('default', ['clean'], function (cb) {
     // Note: add , 'precache' , after 'vulcanize', if your are going to use Service Worker
 });
 
-gulp.task('deploy', ['default'], function(cb) {
+gulp.task('deploy', function(cb) {
     ghpages.publish(path.join(process.cwd(), 'dist'), cb);
 });
 
