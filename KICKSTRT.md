@@ -20,17 +20,14 @@ To watch content from a live yaya channel on your TV set,  you need to:
 4. In the chrome browser, install the [chromecast extension](http://www.google.com/intl/en_us/chrome/devices/chromecast/learn.html#how-to-cast-chrome-tab). This 
 allows anyone without a native IOS app or a native Android app to access **Yaya Player app** features.
 5. Open chrome browser , goto [yaya test player URL](http://blooming-falls-9862.herokuapp.com)
-6. Log in to yaya using ...
-7. *investor-portal*    
-8. *unicorn*
-9. as the "Username" and "password" values in the web form
-10. Following login, browser displays **Connect and Play media**. 2 buttons here to operate Yaya on your TV (see illustration)
-11. click on **cast to TV** and a dialog located at far, upper-right displays the Name of TV to connect to (if no dialog appears right away then refresh the browser page and retry the **cast** button)
-12. select and click your TV in the upper-right dialog box (see illustration)
-13. Wait for a connection and a **Ready to Cast** message to appear in the dialog box
-14. The TV will be turned on by the chromecast stick. The proper **input source** will be selected on the TV and the TV screen will show **Yaya-TV-Player-app**
-15. Click the **play media** button in the browser page
-16. Enjoy content (about 11 short video greetings ) just like grandma would
+6. Log in to yaya ...  *investor-portal*   *unicorn*    ...  fill in values in logon (see illustration)
+7. Following login, browser displays **Connect and Play media**. 2 buttons here to operate Yaya on your TV (see illustration)
+8. click on **cast to TV** and a dialog located at far, upper-right displays the Name of TV to connect to (if no dialog appears right away then refresh the browser page and retry the **cast** button)
+9. select and click your TV in the upper-right dialog box (see illustration)
+10. Wait for a connection and a **Ready to Cast** message to appear in the dialog box
+11. The TV will be turned on by the chromecast stick. The proper **input source** will be selected on the TV and the TV screen will show **Yaya-TV-Player-app**
+12. Click the **play media** button in the browser page
+13. Enjoy content (about 11 short video greetings ) just like grandma would
 
 ### Screenshots of Demo Webapp for the player
 
@@ -48,8 +45,6 @@ My tv is named "yaya" so i click on it in the connect dialog shown above
 
 Photo above has a yaya channel with 2 participants or members (one of the 2 users produces videos, the other watches).
 **investor-portal** may view media messages from  **retireeB** ( or anyone else in a larger group than this one). If you are comfortable with **google+ groups**, this should be a familiar concept. This illustration provides an insight on the robust CDN underlying Yaya's secure infrastructure.
-
-FAQ on sharing a video from the [Yaya creator app](https://www.youtube.com/watch?v=goTA4lu7MMA&t=2m56s)
 
 <a href="https://cloud.githubusercontent.com/assets/169984/8469296/2214c03e-202d-11e5-81cc-4a32ecaee345.gif"><img src="http://www.yayatv.tv/images/kick_yaya_CRE.png"></a> 
 
