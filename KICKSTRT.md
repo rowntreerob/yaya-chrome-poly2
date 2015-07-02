@@ -50,7 +50,7 @@ Photo above has a yaya channel with 2 participants or members (one of the 2 user
 
 Click above photo for more on **creating yaya videos**
 
-<a href="https://cloud.githubusercontent.com/assets/169984/8489209/c5765760-20cd-11e5-84a5-712ca4920fd8.gif"><img src="http://www.yayatv.tv/images/kick_yaya_SHR_1.png"></a> 
+<a href="https://cloud.githubusercontent.com/assets/169984/8489209/c5765760-20cd-11e5-84a5-712ca4920fd8.gif"><img src="http://www.yayatv.tv/images/yaya_SHR_1.png"></a> 
 
 Click above photo for more on **sharing yaya videos**
 
