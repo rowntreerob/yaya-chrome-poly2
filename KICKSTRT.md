@@ -49,5 +49,7 @@ Note about Channels, Users and permissions.  User **investor-portal** has been g
 
 FAQ on sharing a video from the [Yaya creator app](https://www.youtube.com/watch?v=goTA4lu7MMA&t=2m56s)
 
-![message creation](http://giphy.com/gifs/ugc-seniors-xTiTnqzcoyoQPMqiAM)
+
+<iframe src="//giphy.com/embed/xTiTnqzcoyoQPMqiAM" width="272" height="496" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
 
