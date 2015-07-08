@@ -46,7 +46,7 @@ My tv is named "yaya" so i click on it in the connect dialog shown above
 Photo above has a yaya channel with 2 participants or members (one of the 2 users produces videos, the other watches).
 **investor-portal** may view media messages from  **retireeB** ( or anyone else in a larger group than this one). If you are comfortable with **google+ groups**, this should be a familiar concept. This illustration provides an insight on the robust CDN underlying Yaya's secure infrastructure.
 
- <a href="https://cloud.githubusercontent.com/assets/169984/8469296/2214c03e-202d-11e5-81cc-4a32ecaee345.gif"><img src="http://www.yayatv.tv/images/fab_r2.png"></a>  <a href="https://cloud.githubusercontent.com/assets/169984/8489209/c5765760-20cd-11e5-84a5-712ca4920fd8.gif"><img src="http://www.yayatv.tv/images/share-icon.png"></a>  
+ <a href="https://cloud.githubusercontent.com/assets/169984/8469296/2214c03e-202d-11e5-81cc-4a32ecaee345.gif"><img src="http://www.yayatv.tv/images/fab_r2.png" title="Create new message"></a>  <a href="https://cloud.githubusercontent.com/assets/169984/8489209/c5765760-20cd-11e5-84a5-712ca4920fd8.gif"><img src="http://www.yayatv.tv/images/share-icon.png" title="Share to a Channel"></a> <a href="https://cloud.githubusercontent.com/assets/169984/8560409/20a5fbd4-24cc-11e5-9b31-7d5209e14cb5.gif"><img src="http://www.yayatv.tv/images/player_icon.png" title="Play on the big TV"></a> 
 
 
 More info available on [Youtube](https://www.youtube.com/playlist?list=PLzLYnLHiwXuxn5KD8Apq1DVRkLucqW9oa)
