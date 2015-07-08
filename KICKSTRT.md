@@ -1,18 +1,18 @@
 ![](http://www.yayatv.tv/images/icon_yaya2_96.png)
 ## Try out the Yaya Player at home
 
-> Look over grandmas shoulder, enjoy a unique TV show with here as she watches a channel of media created and shared direct to her TV. With just a $35 chromecast configured on wifi/TV, use your chrome browser to visit a test, 'viewing' page where 3 simple button taps bring on the show. Watch a series of videos from a live Yaya channel created by a 5 year old, playing video greetings she shared to grandma. 
+> Look over grandmas shoulder, as she watches her big screen TV, delighting in a channel of media created just for her and shared direct to her TV. With just a $35 chromecast configured on wifi/TV, use your chrome browser to visit a test, 'viewing' page where 3 simple button taps bring on a show created by a 5 year old for her grandma. Watch a series of videos from a live YayaTV channel delivered from the cloud to your TV. 
 
 ### Simple and fun for grandma right at her TV:
 
 * No remote required, the webpage turns the tv set on. The web page sets the TV's 'input source'
-* Just tap a few buttons on the page and the Tv will start steaming videos from the yaya channel
+* Just tap a few buttons on the web page and the Tv will start steaming videos from the yaya channel
 * The better the TV, the better the viewing experience
 * Almost as good as having the grandkids there in the room!
 
 ## Getting Started
 
-To watch content from a live yaya channel on your TV set,  you need to:
+To watch content from a live Yaya channel on your TV set,  you need to:
 
 1. Get a [chromecast](http://www.google.com/intl/en_us/chrome/devices/chromecast/index.html)
 2. [Install chromecast](https://support.google.com/chromecast/answer/2998456) and config for your wifi
@@ -46,12 +46,7 @@ My tv is named "yaya" so i click on it in the connect dialog shown above
 Photo above has a yaya channel with 2 participants or members (one of the 2 users produces videos, the other watches).
 **investor-portal** may view media messages from  **retireeB** ( or anyone else in a larger group than this one). If you are comfortable with **google+ groups**, this should be a familiar concept. This illustration provides an insight on the robust CDN underlying Yaya's secure infrastructure.
 
-<a href="https://cloud.githubusercontent.com/assets/169984/8469296/2214c03e-202d-11e5-81cc-4a32ecaee345.gif"><img src="http://www.yayatv.tv/images/kick_yaya_CRE.png"></a> 
+| <a href="https://cloud.githubusercontent.com/assets/169984/8469296/2214c03e-202d-11e5-81cc-4a32ecaee345.gif"><img src="http://www.yayatv.tv/images/fab_r2.png"></a> | <a href="https://cloud.githubusercontent.com/assets/169984/8489209/c5765760-20cd-11e5-84a5-712ca4920fd8.gif"><img src="http://www.yayatv.tv/images/share-icon.png"></a> | 
 
-Click above photo for more on **creating yaya videos**
-
-<a href="https://cloud.githubusercontent.com/assets/169984/8489209/c5765760-20cd-11e5-84a5-712ca4920fd8.gif"><img src="http://www.yayatv.tv/images/yaya_SHR_1.png"></a> 
-
-Click above photo for more on **sharing yaya videos**
 
 More info available on [Youtube](https://www.youtube.com/playlist?list=PLzLYnLHiwXuxn5KD8Apq1DVRkLucqW9oa)
