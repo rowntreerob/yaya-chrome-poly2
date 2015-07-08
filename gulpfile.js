@@ -265,7 +265,7 @@ gulp.task('default', ['clean'], function (cb) {
 });
 
 gulp.task('deploy', function(cb) {
-    ghpages.publish(path.join(process.cwd(), 'dist'), cb);
+    ghpages.publish(path.join(process.cwd(), 'public'), cb);
 });
 
 // Load tasks for web-component-tester

@@ -3,35 +3,37 @@
 (function () {
     var media = {};
     var mediaList = [];
+    // why both button.castMgr and this.castMgr  ONLY 1 needed 
     var castManager;
 
 /*jshint -W117 */	
-
+//hit play b4 hit cast ??
  window.addEventListener('WebComponentsReady', function() {
-	   var playButton = document.getElementById('play_button');
-	   
-      playButton.addEventListener('click', function() {
+	var playButton = document.getElementById('play_button');	   
+	playButton.addEventListener('click', function() {
 		var myQueIm;
 		var myQue = [];
 		var myQReq;
+		//which castMgr to user?
 		if (castManager.hasCastSession()){
-       //query -> mediaList asModle Collection from a FETCH
-        for (var i in mediaList) {
-			myQueIm = new chrome.cast.media.QueueItem(mediaList[i]);
-			myQue.autoplay = true;
-			myQue.push(myQueIm);
-		}
-        myQReq =  new chrome.cast.media.QueueLoadRequest (myQue);
-        console.log('Launch success loading MediaQ ' +myQue.length);                
-        castManager.session.queueLoad(myQReq, 
-			function(media) {
-				console.log('Media loaded ' +JSON.stringify(media));
-//				document.querySelector('#toast1').show();
+			//query -> mediaList asModle Collection from a FETCH
+			for (var i in mediaList) {
+				myQueIm = new chrome.cast.media.QueueItem(mediaList[i]);
+				myQue.autoplay = true;
+				myQue.push(myQueIm);
+			}
+			myQReq =  new chrome.cast.media.QueueLoadRequest (myQue);
+			console.log('Launch success loading MediaQ ' +myQue.length);                
+			castManager.session.queueLoad(
+				myQReq, 
+				function(media) {
+					console.log('Media loaded ' +JSON.stringify(media));
+		//				document.querySelector('#toast1').show();
 				},
-			function(e) {
-				console.log('Media error: ' + JSON.stringify(e));
-			}); 
-        }
+				function(e) {
+					console.log('Media error: ' + JSON.stringify(e));
+				}); 
+		 }
       });	   
 	   
 	 });			
@@ -50,21 +52,15 @@
 		query.find().then(function(content) {
 			mediaList = processMediaList(content);																
 			media = new cast.Media(mediaList[0]);
+			//mv var to top
 			var castButton = document.querySelector('#cast_button');
 			castButton.castManager = new cast.CastManager(media);
-			castManager = castButton.castManager;
-//			castButton.castManager = castManager;
-//			castButton.mediaList = mediaList; // sync to other element
-//			castButton.media = media;			   // Initialize Parse 
-
-//			castManager =  new cast.CastManager(media);		
-//		castManager.setCastMedia(media); //how to get this over to button 
-//			castButton.castManager = castManager; //this should raise an event over there in button			
+			castManager = castButton.castManager;			
 			console.log('called query n set media');		   
 		},function(error) {
 		  console.error('Request failed with response code ' +JSON.stringify(error));
 		}); // END query
-		}
+		} // END getParseMedia
 		
     // should really instantiate a Model instance and add it to collection
     //model

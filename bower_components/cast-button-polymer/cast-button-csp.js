@@ -393,12 +393,9 @@ hostAttributes: {
               chrome.cast.initialize(apiConfig, 
 				this.initSuccess.bind(this), 
 //				this.errorHandler);
-				this.initFail.bind(this));
-				  
-				//TODO is this legal in 1.0
-              // Add an event listener to try and connect when clicked
-              this.$.button_cast.addEventListener('click', function() {
-				  //TODO new media from list, new CMgr(media) : castManager =  new cast.CastManager(media);	
+				this.initFail.bind(this));				  				
+				// Add an event listener to try and connect when clicked
+				this.$.button_cast.addEventListener('click', function() {				
                 if (this.castManager.session === chrome.cast.SessionStatus.CONNECTED) {
                   this.stopCasting();
                 } else {
@@ -424,7 +421,7 @@ hostAttributes: {
         } else {
           console.log('No receiver app id defined');
         }
-      },
+      },  //Endof Ready
       /**
        * Handles when new sessions are connected.
        */
