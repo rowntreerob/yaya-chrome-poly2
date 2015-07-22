@@ -1,55 +1,741 @@
-<!DOCTYPE html><html><head><title></title><link type="text/css" rel="stylesheet" href="http://jasonm23.github.com/markdown-css-themes/swiss.css"></head><body><div>Loading...</div><textarea id="mdstr" style=display:none>![](http://www.yayatv.tv/images/icon_yaya2_96.png)
-## Try out the Yaya Player at home
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+ 
+<html lang="en">
 
-&gt; Look over grandmas shoulder, as she watches her big screen TV, delighting in a channel of media created just for her and shared direct to her TV. With just a $35 chromecast configured on wifi/TV, use your chrome browser to visit a test, 'viewing' page where 3 simple button taps bring on a show created by a 5 year old for her grandma. Watch a series of videos from a live YayaTV channel delivered from the cloud to your TV. 
+<head>
 
-### Simple and fun for grandma right at her TV:
+<style>
+    .previewPage {
+      margin: 64px auto;
+      width: 920px;
+    }
+    
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
 
-* No remote required, the webpage turns the tv set on. The web page sets the TV's 'input source'
-* Just tap a few buttons on the web page and the Tv will start steaming videos from the yaya channel
-* The better the TV, the better the viewing experience
-* Almost as good as having the grandkids there in the room!
+.markdown-body a {
+  background-color: transparent;
+}
 
-## Getting Started
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
 
-To watch content from a live Yaya channel on your TV set,  you need to:
+.markdown-body strong {
+  font-weight: bold;
+}
 
-1. Get a [chromecast](http://www.google.com/intl/en_us/chrome/devices/chromecast/index.html)
-2. [Install chromecast](https://support.google.com/chromecast/answer/2998456) and config for your wifi
-3. Install chrome browser on your PC if it is not in use already
-4. In the chrome browser, install the [chromecast extension](http://www.google.com/intl/en_us/chrome/devices/chromecast/learn.html#how-to-cast-chrome-tab). This 
-allows anyone without a native IOS app or a native Android app to access **Yaya Player app** features.
-5. Open chrome browser , goto [yaya test player URL](http://blooming-falls-9862.herokuapp.com)
-6. Log in to yaya ...  *investor-portal*   *unicorn*    ...  fill in values in logon (see illustration)
-7. Following login, browser displays **Connect and Play media**. 2 buttons here to operate Yaya on your TV (see illustration)
-8. click on **cast to TV** and a dialog located at far, upper-right displays the Name of TV to connect to (if no dialog appears right away then refresh the browser page and retry the **cast** button)
-9. select and click your TV in the upper-right dialog box (see illustration)
-10. Wait for a connection and a **Ready to Cast** message to appear in the dialog box
-11. The TV will be turned on by the chromecast stick. The proper **input source** will be selected on the TV and the TV screen will show **Yaya-TV-Player-app**
-12. Click the **play media** button in the browser page
-13. Enjoy content (about 11 short video greetings ) just like grandma would
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
 
-### Screenshots of Demo Webapp for the player
+.markdown-body img {
+  border: 0;
+}
 
-![Image of Yaktocat](http://www.yayatv.tv/images/kick_logon.png)
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
 
-One time only, you will be prompted to logon to Yaya
+.markdown-body pre {
+  overflow: auto;
+}
 
-![Image of Yaktocat](http://www.yayatv.tv/images/kick_select_tv.png)
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
 
-My tv is named &quot;yaya&quot; so i click on it in the connect dialog shown above
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
 
-![Image of Yaktocat](http://www.yayatv.tv/images/kick_chnnl.png)
+.markdown-body html input[disabled] {
+  cursor: default;
+}
 
-**Note about Channels, Users and media shares**
+.markdown-body input {
+  line-height: normal;
+}
 
-Photo above has a yaya channel with 2 participants or members (one of the 2 users produces videos, the other watches).
-**investor-portal** may view media messages from  **retireeB** ( or anyone else in a larger group than this one). If you are comfortable with **google+ groups**, this should be a familiar concept. This illustration provides an insight on the robust CDN underlying Yaya's secure infrastructure.
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
 
- &lt;a href=&quot;https://cloud.githubusercontent.com/assets/169984/8469296/2214c03e-202d-11e5-81cc-4a32ecaee345.gif&quot;&gt;&lt;img src=&quot;http://www.yayatv.tv/images/fab_r2.png&quot; title=&quot;Create new message&quot;&gt;&lt;/a&gt;  &lt;a href=&quot;https://cloud.githubusercontent.com/assets/169984/8489209/c5765760-20cd-11e5-84a5-712ca4920fd8.gif&quot;&gt;&lt;img src=&quot;http://www.yayatv.tv/images/share-icon.png&quot; title=&quot;Share to a Channel&quot;&gt;&lt;/a&gt; &lt;a href=&quot;https://cloud.githubusercontent.com/assets/169984/8560409/20a5fbd4-24cc-11e5-9b31-7d5209e14cb5.gif&quot;&gt;&lt;img src=&quot;http://www.yayatv.tv/images/player_icon.png&quot; title=&quot;Play on the big TV&quot;&gt;&lt;/a&gt; 
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
 
-More info available on [Youtube](https://www.youtube.com/playlist?list=PLzLYnLHiwXuxn5KD8Apq1DVRkLucqW9oa)
-</textarea><script src="https://raw.github.com/evilstreak/markdown-js/master/lib/markdown.js"></script><script>var mdstr = document.getElementById('mdstr').value;
-var html = markdown.toHTML(mdstr);
-document.body.innerHTML = html;</script></body></html>
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  padding-left: 8px;
+  margin-left: -30px;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}    
+  </style>
+</head>
+
+<body class=" hasGoogleVoiceExt">
+  <div class="page">
+    <div class="previewPage">
+    <div id="readme" class="announce md">
+      <article class="markdown-body entry-content">
+        <p><a href="https://camo.githubusercontent.com/963c30471a52364a5a50b0bc35acef31798b443c/687474703a2f2f7777772e7961796174762e74762f696d616765732f69636f6e5f79617961325f39362e706e67" target="_blank"><img src="https://camo.githubusercontent.com/963c30471a52364a5a50b0bc35acef31798b443c/687474703a2f2f7777772e7961796174762e74762f696d616765732f69636f6e5f79617961325f39362e706e67" alt="" data-canonical-src="http://www.yayatv.tv/images/icon_yaya2_96.png" style="max-width:100%;"></a></p>
+
+<h2>
+<a id="user-content-try-out-the-yaya-player-at-home" class="anchor" href="#try-out-the-yaya-player-at-home" aria-hidden="true"><span class="octicon octicon-link"></span></a>Try out the Yaya Player at home</h2>
+
+<blockquote>
+<p>Look over grandmas shoulder, as she watches her big screen TV, delighting in a channel of media created just for her and shared direct to her TV. With just a $35 chromecast configured on wifi/TV, use your chrome browser to visit a test, 'viewing' page where 3 simple button taps bring on a show created by a 5 year old for her grandma. Watch a series of videos from a live YayaTV channel delivered from the cloud to your TV. </p>
+</blockquote>
+
+<h3>
+<a id="user-content-simple-and-fun-for-grandma-right-at-her-tv" class="anchor" href="#simple-and-fun-for-grandma-right-at-her-tv" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple and fun for grandma right at her TV:</h3>
+
+<ul>
+<li>No remote required, the webpage turns the tv set on. The web page sets the TV's 'input source'</li>
+<li>Just tap a few buttons on the web page and the Tv will start steaming videos from the yaya channel</li>
+<li>The better the TV, the better the viewing experience</li>
+<li>Almost as good as having the grandkids there in the room!</li>
+</ul>
+
+<h2>
+<a id="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>To watch content from a live Yaya channel on your TV set,  you need to:</p>
+
+<ol>
+<li>Get a <a href="http://www.google.com/intl/en_us/chrome/devices/chromecast/index.html">chromecast</a>
+</li>
+<li>
+<a href="https://support.google.com/chromecast/answer/2998456">Install chromecast</a> and config for your wifi</li>
+<li>Install chrome browser on your PC if it is not in use already</li>
+<li>In the chrome browser, install the <a href="http://www.google.com/intl/en_us/chrome/devices/chromecast/learn.html#how-to-cast-chrome-tab">chromecast extension</a>. This 
+allows anyone without a native IOS app or a native Android app to access <strong>Yaya Player app</strong> features.</li>
+<li>Open chrome browser , goto <a href="http://blooming-falls-9862.herokuapp.com">yaya test player URL</a>
+</li>
+<li>Log in to yaya ...  <em>investor-portal</em>   <em>unicorn</em>    ...  fill in values in logon (see illustration)</li>
+<li>Following login, browser displays <strong>Connect and Play media</strong>. 2 buttons here to operate Yaya on your TV (see illustration)</li>
+<li>click on <strong>cast to TV</strong> and a dialog located at far, upper-right displays the Name of TV to connect to (if no dialog appears right away then refresh the browser page and retry the <strong>cast</strong> button)</li>
+<li>select and click your TV in the upper-right dialog box (see illustration)</li>
+<li>Wait for a connection and a <strong>Ready to Cast</strong> message to appear in the dialog box</li>
+<li>The TV will be turned on by the chromecast stick. The proper <strong>input source</strong> will be selected on the TV and the TV screen will show <strong>Yaya-TV-Player-app</strong>
+</li>
+<li>Click the <strong>play media</strong> button in the browser page</li>
+<li>Enjoy content (about 11 short video greetings ) just like grandma would</li>
+</ol>
+
+<h3>
+<a id="user-content-screenshots-of-demo-webapp-for-the-player" class="anchor" href="#screenshots-of-demo-webapp-for-the-player" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screenshots of Demo Webapp for the player</h3>
+
+<p><a href="https://camo.githubusercontent.com/118575f9ccd0e83212c6f4d842eaa4a01bff7b5f/687474703a2f2f7777772e7961796174762e74762f696d616765732f6b69636b5f6c6f676f6e2e706e67" target="_blank"><img src="https://camo.githubusercontent.com/118575f9ccd0e83212c6f4d842eaa4a01bff7b5f/687474703a2f2f7777772e7961796174762e74762f696d616765732f6b69636b5f6c6f676f6e2e706e67" alt="Image of Yaktocat" data-canonical-src="http://www.yayatv.tv/images/kick_logon.png" style="max-width:100%;"></a></p>
+
+<p>One time only, you will be prompted to logon to Yaya</p>
+
+<p><a href="https://camo.githubusercontent.com/49aa1b8a8578d107984e10ac095b1c1c2188eb5a/687474703a2f2f7777772e7961796174762e74762f696d616765732f6b69636b5f73656c6563745f74762e706e67" target="_blank"><img src="https://camo.githubusercontent.com/49aa1b8a8578d107984e10ac095b1c1c2188eb5a/687474703a2f2f7777772e7961796174762e74762f696d616765732f6b69636b5f73656c6563745f74762e706e67" alt="Image of Yaktocat" data-canonical-src="http://www.yayatv.tv/images/kick_select_tv.png" style="max-width:100%;"></a></p>
+
+<p>My tv is named "yaya" so i click on it in the connect dialog shown above</p>
+
+<p><a href="https://camo.githubusercontent.com/b22bb242a4c229e8648b275f141a8a3b9fb31c66/687474703a2f2f7777772e7961796174762e74762f696d616765732f6b69636b5f63686e6e6c2e706e67" target="_blank"><img src="https://camo.githubusercontent.com/b22bb242a4c229e8648b275f141a8a3b9fb31c66/687474703a2f2f7777772e7961796174762e74762f696d616765732f6b69636b5f63686e6e6c2e706e67" alt="Image of Yaktocat" data-canonical-src="http://www.yayatv.tv/images/kick_chnnl.png" style="max-width:100%;"></a></p>
+
+<p><strong>Note about Channels, Users and media shares</strong></p>
+
+<p>Photo above has a yaya channel with 2 participants or members (one of the 2 users produces videos, the other watches).
+<strong>investor-portal</strong> may view media messages from  <strong>retireeB</strong> ( or anyone else in a larger group than this one). If you are comfortable with <strong>google+ groups</strong>, this should be a familiar concept. This illustration provides an insight on the robust CDN underlying Yaya's secure infrastructure.</p>
+
+<p><a href="https://cloud.githubusercontent.com/assets/169984/8469296/2214c03e-202d-11e5-81cc-4a32ecaee345.gif"><img src="https://camo.githubusercontent.com/be0c458a875e91d9b7ebc2ab8e5c50bfcf4b782f/687474703a2f2f7777772e7961796174762e74762f696d616765732f6661625f72322e706e67" title="Create new message" data-canonical-src="http://www.yayatv.tv/images/fab_r2.png" style="max-width:100%;"></a>  <a href="https://cloud.githubusercontent.com/assets/169984/8489209/c5765760-20cd-11e5-84a5-712ca4920fd8.gif"><img src="https://camo.githubusercontent.com/6a5c9cce51e0577d1667ced53aaa16409fae3480/687474703a2f2f7777772e7961796174762e74762f696d616765732f73686172652d69636f6e2e706e67" title="Share to a Channel" data-canonical-src="http://www.yayatv.tv/images/share-icon.png" style="max-width:100%;"></a> <a href="https://cloud.githubusercontent.com/assets/169984/8560409/20a5fbd4-24cc-11e5-9b31-7d5209e14cb5.gif"><img src="https://camo.githubusercontent.com/8f080daebf3625adc2902fee75a083785cd66e91/687474703a2f2f7777772e7961796174762e74762f696d616765732f706c617965725f69636f6e2e706e67" title="Play on the big TV" data-canonical-src="http://www.yayatv.tv/images/player_icon.png" style="max-width:100%;"></a> </p>
+
+<p>More info available on <a href="https://www.youtube.com/playlist?list=PLzLYnLHiwXuxn5KD8Apq1DVRkLucqW9oa">Youtube</a></p>
+
+      </article>
+    </div>
+  </div>
+  
+  <div>&nbsp;</div>
+  </div>
+
+</body>
+</html>
