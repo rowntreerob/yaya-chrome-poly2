@@ -2,6 +2,9 @@
   "name": "polymer-starter-kit",
   "private": true,
   "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "paper-tooltip": "PolymerElements/paper-tooltip#~1.1.0",
+    "cast-manager-polymer": "googlecast/cast-manager-polymer",
     "iron-elements": "PolymerElements/iron-elements#1.0.0",
     "paper-elements": "PolymerElements/paper-elements#1.0.1",
     "platinum-elements": "PolymerElements/platinum-elements#1.0.1",
@@ -12,7 +15,8 @@
     "paper-toast": "PolymerElements/paper-toast#^1.0.0",
     "login-form": "*",
     "paper-styles": "PolymerElements/paper-styles#^1.0.0",
-    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0"
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
+    "cast-button-polymer": "googlecast/cast-button-polymer#^1.0.2"
   },
   "devDependencies": {
     "web-component-tester": "*",

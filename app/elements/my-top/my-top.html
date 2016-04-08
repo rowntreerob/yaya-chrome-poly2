@@ -1,36 +1,68 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../bower_components/cast-button-polymer/cast-button-csp.html">
-<script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+
+<link rel="import" href="../../bower_components/iron-icons/av-icons.html">
+<!--<link rel="import" href="../../bower_components/cast-button-polymer/cast-button-csp.html"> -->
+<link rel="import" href="../../bower_components/cast-button-polymer/cast-button.html">
+<link rel="import" href="../../bower_components/cast-manager-polymer/cast-manager.html">
+<link rel="import" href="../../bower_components/cast-manager-polymer/helper-behavior.html">
+
 <script src="//www.parsecdn.com/js/parse-1.2.13.min.js"></script>
 
 <dom-module id="my-top" >
 <style>
       paper-icon-button {
-        margin-left: 30px;
+        margin-left: 0px;
         display: block;
         width: 24px;
         text-align: center;
       }
-</style>	
+      #button_play_pause {
+        -webkit-box-ordinal-group: 2;
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+        order: 1;
+      }
+      #button_flex {
+        -webkit-box-ordinal-group: 11;
+        -webkit-order: 10;
+        -ms-flex-order: 10;
+        order: 10;
+        min-width: 0;
+      }
+      .icon-button {
+        height: 39px;
+        width:50px;
+        min-width: 0;
+        color: var(--icon-fill-color);
+        padding: 0;
+        --iron-icon-width:30px;
+        --iron-icon-height:30px;
+        @apply(--layout);
+        @apply(--layout-center-center);
+        @apply(--layout-flex-1);
+      }
+</style>
 
 <template>
-  <p> 1. Cast to TV
+    <p> 1. Cast to TV</p>
+  <cast-manager app-id="E268C6D8"
+                cast-available="{{castAvailable}}"
+                queue="{{queue}}"
+                connection-status="{{connectionStatus}}">
+    <cast-button id="button_cast"
+                     cast-available="[[castAvailable]]"
+                     connection-status="[[connectionStatus]]"
+                     color="black"></cast-button>
+    <p> 2. Play</p>
+  <paper-icon-button id="button_play_pause" icon="av:play-arrow" class="icon-button">
+                   </paper-icon-button>
+  </cast-manager>
 
- <div class="but-cast"> 
-<!-- appid name="app_id" 4F8B3483   --> 
-  <cast-button appId="33E59692" id="cast_button" color="black" animationinterval=400 media-list="{{mediaList}}"></cast-button>
-</div> 
-</p> 
-  <p>
-  2. Play mediaList
-<div class="but-play">   
-  <paper-icon-button id="play_button" src="../../images/play-2-512.png" alt="arrow-back" title="Play"></paper-icon-button> 
-</div>
- </p>
-</template> 
+
+</template>
 
  <script type="text/javascript" src="js/my-top.js"></script>
-    
+
 </dom-module>

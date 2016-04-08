@@ -18,41 +18,52 @@ limitations under the License.
 <html>
 <head>
   <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
-  <link rel="import"
-        href="bower_components/cast-button-polymer/cast-button-polymer.html">
-  <script>
-    var media = {
-      "title": "Big Buck Bunny",
-      "description": "Fusce id nisi turpis. Praesent viverra bibendum semper. Donec tristique, orci sed semper lacinia, quam erat rhoncus massa, non congue tellus est quis tellus. Sed mollis orci venenatis quam scelerisque accumsan. Curabitur a massa sit amet mi accumsan mollis sed et magna. Vivamus sed aliquam risus. Nulla eget dolor in elit facilisis mattis. Ut aliquet luctus lacus. Phasellus nec commodo erat. Praesent tempus id lectus ac scelerisque. Maecenas pretium cursus lectus id volutpat.",
-      "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      "studio": "Blender Foundation",
-      "thumbnailImageUrl": "//commondatastorage.googleapis.com/gtv-videos-bucket/sample/images_480x270/BigBuckBunny.jpg",
-      "largeImageUrl": "//commondatastorage.googleapis.com/gtv-videos-bucket/sample/images_780x1200/BigBuckBunny-780x1200.jpg"
-    };
-
-    window.addEventListener('polymer-ready', function() {
-      var castButton = document.getElementById("cast_button");
-      var playButton = document.getElementById("play_button");
-
-      var castManager = new cast.CastManager(media);
-      castButton.castManager = castManager;
-
-      playButton.addEventListener('click', function() {
-        if (castManager.hasCastSession()){
-          castManager.play(cast.CastManager.SENDER.LOCAL);
-        }
-      });
-    });
-
-  </script>
-  <style></style>
+  <link rel="import" href="bower_components/cast-button-polymer/cast-button.html">
+  <link rel="import" href="bower_components/cast-manager-polymer/cast-manager.html">
+  <style>
+    cast-button {
+      margin-left: 40px;
+    }
+  </style>
 </head>
 <body>
   1. Cast
   <br />
   <br />
-  <cast-button appId="4F8B3483" id="cast_button" color="black"></cast-button>
-  2. Once connected and loaded, play
+  <template id="t" is="dom-bind">
+    <cast-manager app-id="4F8B3483"
+                  cast-available="{{castAvailable}}"
+                  connection-status="{{connectionStatus}}">
+      <cast-button id="button_cast"
+                       cast-available="[[castAvailable]]"
+                       connection-status="[[connectionStatus]]"
+                       color="black"></cast-button>
+    </cast-manager>
+  </template>
+  2. Once connected, play
   <button id="play_button">Play</button>
+
+  <script>
+  var castManager, playButton;
+  var media = {
+    "title": "Big Buck Bunny",
+    "description": "Fusce id nisi turpis. Praesent viverra bibendum semper. Donec tristique, orci sed semper lacinia, quam erat rhoncus massa, non congue tellus est quis tellus. Sed mollis orci venenatis quam scelerisque accumsan. Curabitur a massa sit amet mi accumsan mollis sed et magna. Vivamus sed aliquam risus. Nulla eget dolor in elit facilisis mattis. Ut aliquet luctus lacus. Phasellus nec commodo erat. Praesent tempus id lectus ac scelerisque. Maecenas pretium cursus lectus id volutpat.",
+    "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "studio": "Blender Foundation",
+    "thumbnailImageUrl": "//commondatastorage.googleapis.com/gtv-videos-bucket/sample/images_480x270/BigBuckBunny.jpg",
+    "largeImageUrl": "//commondatastorage.googleapis.com/gtv-videos-bucket/sample/images_780x1200/BigBuckBunny-780x1200.jpg"
+  };
+
+  var t = document.querySelector('#t');
+  t.addEventListener('dom-change', function () {
+    castManager = document.querySelector('cast-manager');
+    playButton = document.getElementById('play_button');
+    playButton.addEventListener('click', function() {
+      if (castManager.isCasting()){
+        castManager.playNow(media);
+      }
+    });
+  });
+  </script>
 </body>
 </html>

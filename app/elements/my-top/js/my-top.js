@@ -1,67 +1,61 @@
- var cast = window.cast || {};	
-	
+ var cast = window.cast || {};
+
 (function () {
+  var castManager, playButton;
+
     var media = {};
     var mediaList = [];
-    // why both button.castMgr and this.castMgr  ONLY 1 needed 
-    var castManager;
+    // why both button.castMgr and this.castMgr  ONLY 1 needed
 
-/*jshint -W117 */	
+/*jshint -W117 */
 //hit play b4 hit cast ??
  window.addEventListener('WebComponentsReady', function() {
-	var playButton = document.getElementById('play_button');	   
-	playButton.addEventListener('click', function() {
-		var myQueIm;
-		var myQue = [];
-		var myQReq;
-		//which castMgr to user?
-		if (castManager.hasCastSession()){
-			//query -> mediaList asModle Collection from a FETCH
-			for (var i in mediaList) {
-				myQueIm = new chrome.cast.media.QueueItem(mediaList[i]);
-				myQue.autoplay = true;
-				myQue.push(myQueIm);
-			}
-			myQReq =  new chrome.cast.media.QueueLoadRequest (myQue);
-			console.log('Launch success loading MediaQ ' +myQue.length);                
-			castManager.session.queueLoad(
-				myQReq, 
-				function(media) {
-					console.log('Media loaded ' +JSON.stringify(media));
-		//				document.querySelector('#toast1').show();
-				},
-				function(e) {
-					console.log('Media error: ' + JSON.stringify(e));
-				}); 
-		 }
-      });	   
-	   
-	 });			
-			
- //TODO separate concerns get Model /Collection from UI buttons 
-     function getParseMedia(){
-		
+   castManager = document.querySelector('cast-manager');
+	 playButton = document.getElementById('button_play_pause');
+   if(playButton){
+     playButton.addEventListener('click', function() {
+      if (castManager.isCasting()){
+        castManager.setLocalMedia(media);
+        castManager.addItemsToQueue(mediaList);
+        castManager.play();
+      }
+    });  //end PlayButtn1
+   }
+ });	// end of window eventListen
+
+ //TODO separate concerns get Model /Collection from UI buttons
+  function getParseMedia(){
+
 		// the query callback is too late a place to provide mediaList to the child
 		var Items = Parse.Object.extend('MediaItem');
 		var query = new Parse.Query(Items);
 		//query.equalTo("createdBy", Parse.User.current());
 		query.limit(20);
 		query.descending('createdAt');
-/*jshint +W117 */		
-/*jshint -W098 */		
+/*jshint +W117 */
+/*jshint -W098 */
 		query.find().then(function(content) {
-			mediaList = processMediaList(content);																
-			media = new cast.Media(mediaList[0]);
-			//mv var to top
-			var castButton = document.querySelector('#cast_button');
-			castButton.castManager = new cast.CastManager(media);
-			castManager = castButton.castManager;			
-			console.log('called query n set media');		   
+			mediaList = processMediaList(content);
+      media = mediaList[0];
+			//media = new cast.Media(mediaList[0]);
+
+			console.log('called query n set media');
 		},function(error) {
 		  console.error('Request failed with response code ' +JSON.stringify(error));
 		}); // END query
-		} // END getParseMedia
-		
+	} // END getParseMedia
+
+  function setMedia(content){
+  var lMedia = {};
+  lMedia.title = content.get('msg').substring(0, 32);
+   lMedia.description = content.get('msg');
+   lMedia.url = content.get('media3').url();
+   lMedia.studio = 'borneo';
+   lMedia.thumbnailImageUrl = content.get('media4').url();
+   lMedia.largeImageUrl = content.get('media1').url();
+  return lMedia;
+}
+
     // should really instantiate a Model instance and add it to collection
     //model
  //         'title': contentArray[i].get("msg").substring(0, 32),
@@ -74,35 +68,78 @@
       var myArray =[];
       var contentArray = content;
       for (var i = 0; i < contentArray.length; i++) {
-		  myArray.push(new chrome.cast.media.MediaInfo(contentArray[i].get('media3').url(), 'video/mp4'));		  
+		  //myArray.push(new chrome.cast.media.MediaInfo(contentArray[i].get('media3').url(), 'video/mp4'));
+        myArray.push(setMedia(contentArray[i]));
       }
       return myArray;
     }
-     
-   // Initialize Parse 
+
+   // Initialize Parse PROD
   Parse.initialize('dDgpCbCGWqIojuPcym19Ov6vEkmBH8Nk90P3qovv',
-                   'fZM8Qu34SBChH1wnr0hkkp6MkyRAxlhPaOBWltSb');   
+                   'fZM8Qu34SBChH1wnr0hkkp6MkyRAxlhPaOBWltSb');
     if(Parse.User.current()){
 		getParseMedia();
-	} 
+	}
 
   Polymer({
      is: 'my-top',
-      listeners: {
+     properties: {
+       localMedia: {
+   			type: Object,
+   			observer: '_localMediaObserver'
+         },
+       _playerState: {
+         type: Number,
+         observer: '_playerStateObserver'
+       },
+       connectionStatus: {
+        type: Number,
+        notify: true,
+        value: 0 //CastManager.CONNECTION_STATUS
+      },
+     },
+     behaviors: [cast.HelperBehavior],
+     listeners: {
         'login': 'myMethod',
-	},
+	     },
     ready: function () {
-
-		// Prevent clicks in this element from cascading
-		this.addEventListener('click', function(e) {
-		var t = e.target.classList[1];
-        if (t === 'cast-button') {
-			console.log('click', t);
+      this.$.button_play_pause.addEventListener('click', function () {  // jshint ignore:line
+        if (this._playerState !== cast.MediaItem.STATE.PLAYING) {
+          this._play(cast.CastManager.SENDER.CASTCONTROLLER);
         } else {
-           console.log('click', t);
-          }
-        }.bind(this));            
-	}
-  }); 
- 
+          this._pause(cast.CastManager.SENDER.CASTCONTROLLER);
+        }
+      }.bind(this));
+
+
+      // Prevent clicks in this element from bubbling up
+//      this.addEventListener('click', function (event) {
+//        event.stopPropagation();
+//      });
+	},
+  _notifyStateChanged: function () {
+    this.set('_playerState', this.localMedia.state);
+  },
+
+  _playerStateObserver: function (newVal) {
+    if (newVal === cast.MediaItem.STATE.PLAYING) {
+      this.$.button_play_pause.setAttribute('icon', 'av:pause');  // jshint ignore:line
+    } else { //If no media is loaded hide the player bar
+      this.$.button_play_pause.setAttribute('icon', 'av:play-arrow');  // jshint ignore:line
+    }
+  },
+
+_localMediaObserver: function (newVal, oldVal) {
+    if (newVal) {
+      this.listen(this.localMedia, 'state-changed', '_notifyStateChanged');
+      this.listen(this.localMedia, 'duration-changed', '_notifyDurationChanged');
+    }
+    if (oldVal) {
+      this.unlisten(oldVal, 'state-changed', '_notifyStateChanged');
+      this.unlisten(oldVal, 'duration-changed', '_notifyDurationChanged');
+    }
+    //Update play button state since the listners only fire when state changes
+    this._notifyStateChanged();
+  }
+  });
 }());
