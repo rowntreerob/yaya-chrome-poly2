@@ -15,8 +15,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Polymer Starter Kit" />
-  <title>Polymer Starter Kit</title>
+  <meta name="generator" content="Yayatv" />
+  <title>Yayatv player</title>
   <!-- Place favicon.ico in the `app/` directory -->
 
   <!-- Chrome for Android theme color -->
@@ -58,6 +58,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <body unresolved class="fullbleed layout vertical">
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
+  <style>
+:host {
+  display: block;
+}
+
+
+</style>
 
     <paper-drawer-panel id="paperDrawerPanel" forceNarrow>
 
@@ -75,21 +82,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <span>Home</span>
               </a>
 
-              <a data-route="users" href="/users">
-                <iron-icon icon="info"></iron-icon>
-                <span>Users</span>
-              </a>
-
               <a data-route="contact" href="/contact">
                 <iron-icon icon="mail"></iron-icon>
                 <span>Contact</span>
               </a>
- 
+
                <a data-route="logon" href="/logon">
                 <iron-icon icon="mail"></iron-icon>
                 <span>Logon</span>
-              </a>             
-           
+              </a>
+
           </paper-menu>
       </div>
 
@@ -101,7 +103,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <span class="flex"></span>
 
           <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
+          <paper-icon-button  id="tbProfile" icon="account-circle" title="logout"></paper-icon-button>
           <paper-icon-button icon="search"></paper-icon-button>
           <div class="middle">
 		<img src="images/ico_yaya.png" title="YayaTV" >
@@ -132,23 +134,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
-            <section data-route="users">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">Users</h2>
-                <p>This is the users section</p>
-                <a href="/users/Rob">Rob</a>
-              </paper-material>
-            </section>
-
-            <section data-route="user-info">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">
-                User:<span>{{params.name}}</span>
-                </h2>http://stackoverflow.com/
-                <div>This is <span>{{params.name}}</span>'s section</div>
-              </paper-material>
-            </section>
-
             <section data-route="contact">
               <paper-material elevation="1">
               <h2 class="paper-font-display1">Connect and Play media</h2>
@@ -156,10 +141,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	               <my-top></my-top>
               </paper-material>
             </section>
-            
+
             <section data-route="logon">
               <paper-material elevation="1">
-	              <login-form ></login-form>  
+	              <login-form ></login-form>
 <!--				<p>This is where LOGON TAG</p>-->
               </paper-material>
             </section>

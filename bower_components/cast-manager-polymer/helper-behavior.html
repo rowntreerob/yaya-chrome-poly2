@@ -1,0 +1,199 @@
+<script>
+  var cast = cast || {};
+
+  /**
+   * These are commonly used functions across the elements.  To extend these behaviors in your
+   * own element include helper-behavior.html and add the following line to your element definition.
+   *
+   *    behaviors: [cast.HelperBehavior],
+   */
+  cast.HelperBehavior = {
+
+    /**
+     * Converts time in seconds to HH:MM:SS
+     *
+     * @param {Number} newSeconds time in seconds to convert
+     * @returns {String} String in HH:MM:SS format representing time
+     */
+    _secondsToHHMMSS: function(newSeconds) {
+      var hours = Math.floor(newSeconds / 3600);
+      var minutes = Math.floor((newSeconds % 3600) / 60);
+      var seconds = Math.floor(newSeconds % 60);
+
+      if (minutes < 10) {
+        minutes = '0' + minutes;
+      }
+      if (seconds < 10) {
+        seconds = '0' + seconds;
+      }
+      return hours + ':' + minutes + ':' + seconds;
+    },
+
+    /**
+     * Ellipsise strings down to specific length.
+     *
+     * @param {String} stringToShorten string to shorten
+     * @param {Number} maxLength max length of string before ellipsising
+     * @returns {*} shortened string if necessary with ellipses
+     */
+    _shorten: function(stringToShorten, maxLength) {
+      if (stringToShorten !== null && stringToShorten !== undefined) {
+        return stringToShorten.length > maxLength ? stringToShorten.substr(0, maxLength - 3) +
+        '...' :
+            stringToShorten;
+      }
+      return '';
+    },
+
+    /**
+     * Fires a play event to parent elements.  Mainly targets cast-manager
+     *
+     * @param {cast.CastManager.SENDER}  defines the sender issuing the commands
+     */
+    _play: function(sender) {
+      this.fire('mediaActionEvent', {
+        type: 'play',
+        args:[sender]
+      });
+    },
+
+    /**
+     * Fires a pause event to parent element.  Targets cast-manager
+     *
+     * @param {cast.CastManager.SENDER} sender defines the sending element
+     */
+    _pause: function(sender) {
+      this.fire('mediaActionEvent', {
+        type: 'pause',
+        args:[sender]
+      });
+    },
+
+    /**
+     * Fires a seek event to parent element.  Targets cast-manager
+     *
+     * @param {Number} time time in seconds to seek to
+     * @param {cast.CastManager.SENDER} sender defines the sending element
+     */
+    _seek: function(time, sender) {
+      this.fire('mediaActionEvent', {
+        type: 'seek',
+        args:[time, sender]
+      });
+    },
+
+    /**
+     * Fire an event to load the next queue item
+     */
+    _queueLoadNextItem: function() {
+      this.fire('mediaActionEvent', {
+        type: 'queueLoadNextItem'
+      });
+    },
+
+    /**
+     * Fire an event to play the specified item from the queue.
+     *
+     * @param {cast.MediaItem} media queue element to play
+     */
+    _queuePlayItem:function(media) {
+      this.fire('mediaActionEvent', {
+        type: 'queuePlayItem',
+        args: [media]
+      });
+    },
+
+    /**
+     * Fires an event to remove the media item from queue
+     *
+     * @param {cast.MediaItem} media queue element to remove
+     */
+    _queueRemoveItem: function (media) {
+      this.fire('queueEvent', {
+        type: 'queueRemoveItem',
+        args: [media]
+      });
+    },
+
+    /**
+     * Fires a playNow event to insert the item and immediately play it
+     * @param {cast.MediaItem} media item to insert and play
+     */
+    _queueAddAsCurrentItem: function(media) {
+      this.fire('queueEvent', {
+        type: 'playNow',
+        args: [media]
+      });
+    },
+
+    /**
+     * Fires a playNext event to insert the item as the next item in queue
+     * @param {cast.MediaItem} media item to insert
+     */
+    _queueAddAsNextItem: function(media) {
+      this.fire('queueEvent', {
+        type: 'playNext',
+        args: [media]
+      });
+    },
+
+    /**
+     * Add an array of media items to the queue
+     * @param {Array} items array of `cast.MediaItem`s
+     */
+    _queueAddItemsToQueue: function(items) {
+      this.fire('queueEvent', {
+        type: 'addItemsToQueue',
+        args: [items]
+      });
+    },
+
+    /**
+     * Set the local media
+     * @param {cast.MediaItem} media media to set as current localMedia
+     */
+    _setLocalMedia:function(media) {
+      this.fire('mediaActionEvent', {
+        type: 'setLocalMedia',
+        args: [media]
+      })
+    },
+
+    /**
+     * Fire an event to exit screen
+     */
+    _exitFullscreen: function() {
+      this.fire('mediaActionEvent', {
+        type: 'exitFullscreen'
+      });
+    },
+
+    /**
+     * Fire an event to full screen the video element
+     */
+    _fullscreen: function() {
+      this.fire('mediaActionEvent', {
+        type: 'fullscreen'
+      });
+    },
+
+    /**
+     * Fires an event to toggle the queue.
+     */
+    _toggleQueueElement: function(){
+      this.fire('queueEvent', {
+        type:'toggleQueueElement'
+      });
+    },
+
+    /**
+     * Helper function to determine if cast is connected
+     *
+     * @param {cast.CastManager.CONNECTION_STATUS} status connection status
+     * @returns {boolean} True if status is connected
+     */
+    _isConnected: function(status) {
+      return status === cast.CastManager.CONNECTION_STATUS.CONNECTED;
+    }
+  }
+</script>

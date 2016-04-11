@@ -33,8 +33,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // Ensure the drawer is hidden on desktop/tablet
     var drawerPanel = document.querySelector('#paperDrawerPanel');
     drawerPanel.forceNarrow = true;
+    /*global Parse */
+
+    document.getElementById('tbProfile').addEventListener('click', function(e) {
+       console.log(e.target.tagName); // logs FOO-Bar
+        e.preventDefault();
+       var currentUser = Parse.User.current();
+        if (currentUser) {
+            Parse.User.logOut();
+        }
+     });
   });
-   
+
   window.addEventListener('login', function() {
 		app.route = 'contact';
 		page('/#!/contact');
@@ -48,15 +58,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   };
 /*jshint -W117 */
-   // Initialize Parse 
+   // Initialize Parse
   Parse.initialize('dDgpCbCGWqIojuPcym19Ov6vEkmBH8Nk90P3qovv',
-                   'fZM8Qu34SBChH1wnr0hkkp6MkyRAxlhPaOBWltSb');   
+                   'fZM8Qu34SBChH1wnr0hkkp6MkyRAxlhPaOBWltSb');
 
   if(Parse.User.current()) {
 //	  todoModel.myusername = Parse.User.current().getUsername();
 	  page('/#!/contact');
   } else {
 	  page('/#!/logon');
-	  } 
+	  }
 
 })(document);

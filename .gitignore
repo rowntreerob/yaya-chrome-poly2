@@ -2,6 +2,7 @@ node_modules
 dist
 bower_components/*
 !/bower_components/cast-button-polymer
+!/bower_components/cast-manager-polymer
 !/bower_components/login-form
 .tmp
 *~
