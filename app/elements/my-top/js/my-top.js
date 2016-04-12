@@ -14,10 +14,11 @@
 	 playButton = document.getElementById('button_play_pause');
    if(playButton){
      playButton.addEventListener('click', function() {
+       console.log('EVE playBut');
       if (castManager.isCasting()){
         castManager.setLocalMedia(media);
         castManager.addItemsToQueue(mediaList);
-        castManager.play();
+    //    castManager.play();
       }
     });  //end PlayButtn1
    }
@@ -46,14 +47,28 @@
 	} // END getParseMedia
 
   function setMedia(content){
-  var lMedia = {};
-  lMedia.title = content.get('msg').substring(0, 32);
-   lMedia.description = content.get('msg');
-   lMedia.url = content.get('media3').url();
-   lMedia.studio = 'borneo';
-   lMedia.thumbnailImageUrl = content.get('media4').url();
-   lMedia.largeImageUrl = content.get('media1').url();
-  return lMedia;
+    var lMedia = {};
+    var p1;
+    lMedia.title = content.get('msg').substring(0, 32);
+    lMedia.description = content.get('msg');
+    p1 = content.get('media3');
+    if(typeof p1 !== 'undefined'){
+        lMedia.url = p1.url();
+    }
+
+    lMedia.studio = 'borneo';
+    p1 = content.get('media4');
+    if(typeof p1 !== 'undefined'){
+        lMedia.thumbnailImageUrl = p1.url();
+    }
+    p1 = content.get('media1');
+    if(typeof p1 !== 'undefined'){
+        lMedia.largeImageUrl = p1.url();
+    }
+    if (typeof lMedia.url === 'undefined'){
+       lMedia = {};
+    }
+    return lMedia;
 }
 
     // should really instantiate a Model instance and add it to collection
@@ -66,10 +81,16 @@
 //          'largeImageUrl': contentArray[i].get("media1").url()
     function processMediaList(content) {
       var myArray =[];
+      var nMedia;
       var contentArray = content;
       for (var i = 0; i < contentArray.length; i++) {
 		  //myArray.push(new chrome.cast.media.MediaInfo(contentArray[i].get('media3').url(), 'video/mp4'));
-        myArray.push(setMedia(contentArray[i]));
+        nMedia = setMedia(contentArray[i]) || {};
+        if(typeof nMedia.url !== 'undefined'){
+          myArray.push(nMedia);
+
+          console.log('FND ' + nMedia.url);
+        }
       }
       return myArray;
     }
