@@ -67,7 +67,7 @@
   },
   "scripts": {
     "start": "gulp serve:dist",
-    "postinstall": "bower install && gulp",
+    "postinstall": "gulp",
     "test": "gulp test:local"
   },
   "engines": {
