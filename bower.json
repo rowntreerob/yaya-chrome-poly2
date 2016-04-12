@@ -2,14 +2,15 @@
   "name": "polymer-starter-kit",
   "private": true,
   "dependencies": {
-      "polymer": "Polymer/polymer#^1.2.0",
+
       "paper-tooltip": "PolymerElements/paper-tooltip#~1.1.0",
       "cast-manager-polymer": "googlecast/cast-manager-polymer",
     "iron-elements": "PolymerElements/iron-elements#^1.0.0",
     "neon-elements": "PolymerElements/neon-elements#1.0.0",
     "paper-elements": "PolymerElements/paper-elements#^1.0.1",
-    "platinum-elements": "PolymerElements/platinum-elements#^1.1.0",        
+    "platinum-elements": "PolymerElements/platinum-elements#^1.1.0",
     "page": "visionmedia/page.js#~1.6.4",
+    "polymer": "Polymer/polymer#~1.1.3",
     "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.0",
     "iron-signals": "PolymerElements/iron-signals#^1.0.0",
     "paper-toast": "PolymerElements/paper-toast#^1.0.1",
