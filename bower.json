@@ -16,7 +16,8 @@
     "login-form": "*",
     "paper-styles": "PolymerElements/paper-styles#^1.0.0",
     "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
-    "cast-button-polymer": "googlecast/cast-button-polymer#^1.0.2"
+    "cast-button-polymer": "googlecast/cast-button-polymer#^1.0.2",
+    "web-component-tester": "^4.2.2"
   },
   "devDependencies": {
     "web-component-tester": "*",
