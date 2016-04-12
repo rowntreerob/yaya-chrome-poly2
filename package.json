@@ -33,6 +33,7 @@
     "web-component-tester": "^3.1.3"
   },
   "dependencies": {
+    "bower": "^1.3.9",
     "browser-sync": "^2.7.7",
     "connect-history-api-fallback": "^1.1.0",
     "del": "^1.1.1",
@@ -67,7 +68,7 @@
   },
   "scripts": {
     "start": "gulp serve:dist",
-    "postinstall": "gulp",
+    "postinstall": "bower install && gulp",
     "test": "gulp test:local"
   },
   "engines": {
