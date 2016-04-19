@@ -17,9 +17,9 @@ To watch content from a live Yaya channel on your TV set,  you need to:
 1. Get a [chromecast](http://www.google.com/intl/en_us/chrome/devices/chromecast/index.html)
 2. [Install chromecast](https://support.google.com/chromecast/answer/2998456) and config for your wifi
 3. Install chrome browser on your PC if it is not in use already
-4. In the chrome browser, install the [chromecast extension](https://support.google.com/chromecast/answer/3212008). This 
+4. In the chrome browser, install the [chromecast extension](https://support.google.com/chromecast/answer/3212008). This
 allows anyone without a native IOS app or a native Android app to access **Yaya Player app** features.
-5. Open chrome browser , goto [yaya test player URL](http://blooming-falls-9862.herokuapp.com)
+5. Open chrome browser , goto [yaya test player URL](https://vast-tor-23747.herokuapp.com)
 6. Log in to yaya ...  *investor-portal*   *unicorn*    ...  fill in values in logon (see illustration)
 7. Following login, browser displays **Connect and Play media**. 2 buttons here to operate Yaya on your TV (see illustration)
 8. click on **cast to TV** and a dialog located at far, upper-right displays the Name of TV to connect to (if no dialog appears right away then refresh the browser page and retry the **cast** button)
